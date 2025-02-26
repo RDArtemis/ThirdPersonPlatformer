@@ -3,14 +3,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] InputManager inputManager;
-    void Start()
-    {
-        
-    }
+    private int score = 0; // Score variable
+    public static GameManager Instance { get; private set; } // Singleton instance
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void AddScore(int points)
     {
+        score += points;
         
     }
 }
