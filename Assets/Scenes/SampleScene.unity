@@ -214,8 +214,8 @@ Transform:
   m_GameObject: {fileID: 151707460}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.190001, y: 0, z: -20.710001}
-  m_LocalScale: {x: 5, y: 2, z: 5}
+  m_LocalPosition: {x: 14.190001, y: -0.5, z: -20.710001}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -388,8 +388,8 @@ Transform:
   m_GameObject: {fileID: 178170473}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 4}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -591,7 +591,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13665476, y: 0.000000033007428, z: -0.000000004553338, w: 0.99061877}
-  m_LocalPosition: {x: 0, y: 4.88, z: -8}
+  m_LocalPosition: {x: 0, y: 3.25, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -701,8 +701,8 @@ Transform:
   m_GameObject: {fileID: 375017570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.86, y: 4, z: -9.870001}
-  m_LocalScale: {x: 5, y: 10, z: 5}
+  m_LocalPosition: {x: -19.86, y: 3, z: -9.870001}
+  m_LocalScale: {x: 5, y: 8, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -1388,8 +1388,8 @@ Transform:
   m_GameObject: {fileID: 1033016631}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.32, y: 0, z: -29.490002}
-  m_LocalScale: {x: 3, y: 2, z: 3}
+  m_LocalPosition: {x: -9.32, y: -0.25, z: -29.490002}
+  m_LocalScale: {x: 4, y: 1.5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -1629,7 +1629,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -19.59, y: 2, z: -26.85}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 6, y: 5, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -1904,7 +1904,7 @@ Transform:
   m_GameObject: {fileID: 1316621183}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.63, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1924,10 +1924,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputManager: {fileID: 70147640}
-  speed: 10
-  jumpForce: 5
+  speed: 15
+  jumpForce: 7
   groundCheckDistance: 1
-  dashSpeed: 10
+  dashSpeed: 20
   dashDuration: 0.2
   dashCooldown: 1
   cameraTransform: {fileID: 2009314908}
@@ -1957,7 +1957,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1339626313
 GameObject:
@@ -2162,8 +2162,8 @@ Transform:
   m_GameObject: {fileID: 1676833017}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.39, y: 1, z: -3.6800003}
-  m_LocalScale: {x: 7, y: 4, z: 7}
+  m_LocalPosition: {x: 9.39, y: 0, z: -3.6800003}
+  m_LocalScale: {x: 7, y: 2, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 622736912}
@@ -2728,7 +2728,7 @@ Transform:
   m_GameObject: {fileID: 2009314902}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13665476, y: 0.000000033007428, z: -0.0000000045533386, w: 0.99061877}
-  m_LocalPosition: {x: 0, y: 4.88, z: -8}
+  m_LocalPosition: {x: 0, y: 3.25, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2797,7 +2797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8885321493828821957, guid: 08146d7acacc91849ae1d4da1eb895e5, type: 3}
       propertyPath: rotationSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -13,9 +13,10 @@ public class Coin : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigger entered!");
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.AddScore(pointsValue); 
+            Debug.Log("Player tag detected!");
             Destroy(gameObject);
         }
     }
