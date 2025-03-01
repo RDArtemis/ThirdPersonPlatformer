@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     private float dashTimer;
     private float dashCooldownTimer;
 
+
     void Start()
     {
         inputManager.OnMove.AddListener(MovePlayer);
@@ -103,7 +104,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         // Ground check using a raycast
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
 
         //different gravity values to make jumps feel more real
         float currentGravity = normalGravity; // Default gravity
@@ -132,9 +133,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Ground check using a raycast
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
-
+        
         if (isGrounded)
         {
             currentJumps = 0; // Reset jumps when grounded
