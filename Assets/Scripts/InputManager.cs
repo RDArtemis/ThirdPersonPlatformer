@@ -38,5 +38,10 @@ public class InputManager : MonoBehaviour
             OnJump?.Invoke(); //jump time!
         }
 
+        if (Input.GetKey(KeyCode.F))
+        {
+            OnDash.Invoke();
+        }
+
     }
 }

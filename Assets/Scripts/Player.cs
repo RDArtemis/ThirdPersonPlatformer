@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashSpeed = 10f; // Speed of the dash
     [SerializeField] private float dashDuration = 0.2f; // Duration of the dash
     [SerializeField] private float dashCooldown = 1f; // Cooldown between dashes
+    [SerializeField] private float normalGravity = -9.81f;
+    [SerializeField] private float risingGravity = -12f;
+    [SerializeField] private float fallingGravity = -18f;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform cameraTransform;
 
     private Rigidbody rb;
@@ -26,6 +30,7 @@ public class Player : MonoBehaviour
         inputManager.OnJump.AddListener(OnJumpAction);
         inputManager.OnDash.AddListener(OnDashAction);
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false; // Disable default gravity
 
         //debugging/ error checking
         if (rb == null)
@@ -80,6 +85,34 @@ public class Player : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        // Ground check using a raycast
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
+
+        float currentGravity = normalGravity; // Default gravity
+
+        if (rb.linearVelocity.y > 0) // Rising
+        {
+            currentGravity = risingGravity;
+        }
+        else if (rb.linearVelocity.y < 0) // Falling
+        {
+            currentGravity = fallingGravity;
+        }
+
+        rb.AddForce(Vector3.up * currentGravity, ForceMode.Acceleration); // Apply custom gravity
+        if (!isGrounded)
+        {
+            rb.linearDamping = 1f;
+        }
+        else
+        {
+            rb.linearDamping = 0f;
+        }
+
+    }
+
     void Update()
     {
         // Ground check using a raycast
@@ -92,6 +125,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space)) // Check for KeyUp
         {
             hasJumped = false; // Reset the flag when the key is released
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && rb.linearVelocity.y > 0) //variable jump height
+        {
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f, rb.linearVelocity.z);
         }
         if (isDashing)
         {
