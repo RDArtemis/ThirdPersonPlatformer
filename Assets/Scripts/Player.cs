@@ -61,8 +61,23 @@ public class Player : MonoBehaviour
         // 2. Calculate the movement direction relative to the camera
         Vector3 moveDirection = cameraForward * direction.y + cameraRight * direction.x;
 
-        // 3. Apply the movement (using Rigidbody)
+        // 3. Apply the movement
         rb.AddForce(moveDirection * speed, ForceMode.Force);
+    }
+    void LateUpdate() // Use LateUpdate to ensure camera rotation happens after movement
+    {
+        if (cameraTransform == null) return; // Error checking
+
+        // 1. Get the camera's forward vector (horizontal)
+        Vector3 cameraForward = cameraTransform.forward;
+        cameraForward.y = 0f;
+        cameraForward.Normalize();
+
+        // 2. Calculate the rotation
+        Quaternion targetRotation = Quaternion.LookRotation(cameraForward);
+
+        // 3. Apply the rotation
+        transform.rotation = targetRotation;
     }
 
     private void OnJumpAction()
@@ -90,6 +105,7 @@ public class Player : MonoBehaviour
         // Ground check using a raycast
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer);
 
+        //different gravity values to make jumps feel more real
         float currentGravity = normalGravity; // Default gravity
 
         if (rb.linearVelocity.y > 0) // Rising
@@ -102,7 +118,8 @@ public class Player : MonoBehaviour
         }
 
         rb.AddForce(Vector3.up * currentGravity, ForceMode.Acceleration); // Apply custom gravity
-        if (!isGrounded)
+        
+        if (!isGrounded) //add damping when jumping to make smoother forward jumps 
         {
             rb.linearDamping = 1f;
         }
