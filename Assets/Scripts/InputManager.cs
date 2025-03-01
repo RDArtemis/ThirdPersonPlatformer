@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         OnMove?.Invoke(inputVector);
 
         
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             OnJump?.Invoke(); //jump time!
         }

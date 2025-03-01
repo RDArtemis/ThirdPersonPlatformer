@@ -12,12 +12,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float normalGravity = -9.81f;
     [SerializeField] private float risingGravity = -12f;
     [SerializeField] private float fallingGravity = -18f;
-    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform cameraTransform;
 
     private Rigidbody rb;
     private bool isGrounded;
-    public int maxJumps = 2;
+    public int maxJumps = 1;
     private int currentJumps = 0;
     private bool hasJumped; // Flag to prevent multiple jumps within one key press
     private bool isDashing;
@@ -83,11 +82,13 @@ public class Player : MonoBehaviour
 
     private void OnJumpAction()
     {
-        if (currentJumps < maxJumps && !hasJumped) // Check flag
+
+        if (currentJumps < maxJumps && !hasJumped ) // Check flag
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
             hasJumped = true; // Set the flag
+
         }
     
     }
@@ -105,7 +106,8 @@ public class Player : MonoBehaviour
     {
         // Ground check using a raycast
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
-
+        
+        
         //different gravity values to make jumps feel more real
         float currentGravity = normalGravity; // Default gravity
 
@@ -128,16 +130,15 @@ public class Player : MonoBehaviour
         {
             rb.linearDamping = 0f;
         }
-
-    }
-
-    void Update()
-    {
-        
         if (isGrounded)
         {
             currentJumps = 0; // Reset jumps when grounded
         }
+
+    }
+
+    void Update()
+    {        
         if (Input.GetKeyUp(KeyCode.Space)) // Check for KeyUp
         {
             hasJumped = false; // Reset the flag when the key is released
